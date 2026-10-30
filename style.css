@@ -1,0 +1,105 @@
+@font-face { font-family: "Unbounded"; src: url("Unbounded-Bold.ttf"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "DM Sans"; src: url("DMSans-Medium.ttf"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "DM Sans"; src: url("DMSans-Bold.ttf"); font-weight: 700; font-display: swap; }
+
+:root {
+  --background: #0c0d09;
+  --surface: #181a12;
+  --border: #30332a;
+  --text: #f4f5ee;
+  --text-muted: #b4b7a9;
+  --primary: #cdf545;
+  --on-primary: #101204;
+  --space-s: 8px;
+  --space-m: 16px;
+  --space-l: 32px;
+  --space-xl: 64px;
+  --measure: 40rem;
+}
+
+* { box-sizing: border-box; }
+
+html { color-scheme: dark; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font: 500 1.0625rem/1.65 "DM Sans", system-ui, sans-serif;
+}
+
+.page {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-l) var(--space-m) var(--space-xl);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);
+  color: var(--text);
+  font: 700 1rem/1 "Unbounded", sans-serif;
+  text-decoration: none;
+}
+
+/* I mattoncini della serie: lo stesso segno dell'app. */
+.brand::before {
+  content: "";
+  width: 24px;
+  height: 16px;
+  background:
+    linear-gradient(var(--primary) 0 0) 0 100% / 6px 8px no-repeat,
+    linear-gradient(var(--primary) 0 0) 9px 100% / 6px 12px no-repeat,
+    linear-gradient(var(--primary) 0 0) 18px 100% / 6px 16px no-repeat;
+}
+
+nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-m); align-items: center; }
+nav a:not(.brand) { font-weight: 700; }
+
+h1 {
+  margin: var(--space-xl) 0 var(--space-m);
+  font: 700 clamp(2rem, 8vw, 3rem)/1.1 "Unbounded", sans-serif;
+  overflow-wrap: anywhere;
+}
+
+h2 {
+  margin: var(--space-l) 0 var(--space-s);
+  font: 700 1.125rem/1.3 "Unbounded", sans-serif;
+}
+
+p, ul { margin: 0 0 var(--space-m); }
+ul { padding-left: 1.25rem; }
+li { margin-bottom: var(--space-s); }
+
+.lead { color: var(--text-muted); font-size: 1.1875rem; }
+
+a { color: var(--primary); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+
+.contact {
+  margin: var(--space-l) 0;
+  padding: var(--space-m);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.contact p:last-child { margin-bottom: 0; }
+
+.button {
+  display: inline-block;
+  padding: 12px 20px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: 700;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+footer {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
